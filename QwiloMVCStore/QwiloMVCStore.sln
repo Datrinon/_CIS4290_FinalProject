@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QwiloMVCStore", "QwiloMVCStore\QwiloMVCStore.csproj", "{0ACA6C47-9BFB-488D-BA83-C1A622B6E4A9}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CIS4250Fall2020QwiloFashionStore", "..\DannyProject\CIS4250Fall2020QwiloFashionStore.vbproj", "{7955E8BA-3661-4870-A2BA-B182AEE1786C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0ACA6C47-9BFB-488D-BA83-C1A622B6E4A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ACA6C47-9BFB-488D-BA83-C1A622B6E4A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ACA6C47-9BFB-488D-BA83-C1A622B6E4A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7955E8BA-3661-4870-A2BA-B182AEE1786C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7955E8BA-3661-4870-A2BA-B182AEE1786C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7955E8BA-3661-4870-A2BA-B182AEE1786C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7955E8BA-3661-4870-A2BA-B182AEE1786C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
