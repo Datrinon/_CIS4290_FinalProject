@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CIS4250Fall2020QwiloFashionStore", "CIS4250Fall2020QwiloFashionStore.vbproj", "{7955E8BA-3661-4870-A2BA-B182AEE1786C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSDN-Tutorial", "..\..\linl\MSDN-Tutorial\MSDN-Tutorial\MSDN-Tutorial.csproj", "{655E5CD9-D8DD-4AF0-B7EE-B2879D6E7CC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7955E8BA-3661-4870-A2BA-B182AEE1786C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7955E8BA-3661-4870-A2BA-B182AEE1786C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7955E8BA-3661-4870-A2BA-B182AEE1786C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7955E8BA-3661-4870-A2BA-B182AEE1786C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{655E5CD9-D8DD-4AF0-B7EE-B2879D6E7CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{655E5CD9-D8DD-4AF0-B7EE-B2879D6E7CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{655E5CD9-D8DD-4AF0-B7EE-B2879D6E7CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{655E5CD9-D8DD-4AF0-B7EE-B2879D6E7CC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9667D55F-6F8B-4549-9567-02C5CD40E863}
+	EndGlobalSection
+EndGlobal

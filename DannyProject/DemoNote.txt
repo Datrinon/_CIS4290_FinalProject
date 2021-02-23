@@ -1,0 +1,54 @@
+... html form
+
+<form name= method="Post/Get" action="serverprogram"
+   <input type=text name= value=>
+   <input type=radio name= value=>
+   <select name= >
+      <option value=>
+   </select>
+   <input type=submit name=>
+   <input type=button name=>
+</form>
+
+querystring = serverprogram?qs1=value1&qs2=value2&qs3=value3&...
+
+... ASP.net querystring 
+
+Category.aspx?MainCategoryId=<%# Eval("ID")%>&MainCategoryName=<%# Eval("CategoryName")%>
+Category.aspx?SubCategoryId=<%# Eval("ID")%>&SubCategoryName=<%# Eval("CategoryName")%>&MainCategoryID=<% = Request.QueryString("MainCategoryID")%>&&MainCategoryName=<% = Request.QueryString("MainCategoryName")%>
+Product-Detail.aspx?ProductID=<%# Eval("ProductID")%>
+
+... Product List using DataList or Repeater
+
+<asp:DataList ID="dlProductList" runat="server" DataSourceID="SqlDSProductList" 
+	RepeatDirection="Horizontal">
+	<ItemTemplate>
+        <div class="col-sm-4">
+			<div class="product-image-wrapper">
+				<div class="single-products">
+					<div class="productinfo text-center">
+						<img src="images/shop/product12.jpg" alt="" />
+						<h2>$<%# Eval("Price")%></h2>
+						<p><a href=""><%# Eval("ProductName")%></a></p>
+						<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+					</div>
+				</div>
+			</div>
+            <div class="choose">
+				<ul class="nav nav-pills nav-justified">
+					<li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+					<li><a href=""><i class="fa fa-plus-square"></i>Add to compare</a></li>
+				</ul>
+			</div>
+		</div>                                    
+	</ItemTemplate>
+</asp:DataList>  
+
+... Search
+
+<div class="col-sm-3">
+	<div class="">
+        <asp:TextBox ID="tbSearch" runat="server" Width="100px"></asp:TextBox>
+        <asp:Button ID="btnSearch" runat="server" Text="go" />
+	</div>
+</div>

@@ -1,0 +1,599 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CIS4250Fall2020QwiloFashionStore
+</name>
+</assembly>
+<members>
+<member name="T:CIS4250Fall2020QwiloFashionStore.My.MyWebExtension">
+ <summary>
+ Module used to define the properties that are available in the My Namespace for Web projects.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:CIS4250Fall2020QwiloFashionStore.My.MyWebExtension.Computer">
+ <summary>
+ Returns information about the host computer.
+ </summary>
+</member>
+<member name="P:CIS4250Fall2020QwiloFashionStore.My.MyWebExtension.User">
+ <summary>
+ Returns information for the current Web user.
+ </summary>
+</member>
+<member name="P:CIS4250Fall2020QwiloFashionStore.My.MyWebExtension.Request">
+ <summary>
+ Returns Request object.
+ </summary>
+</member>
+<member name="P:CIS4250Fall2020QwiloFashionStore.My.MyWebExtension.Response">
+ <summary>
+ Returns Response object.
+ </summary>
+</member>
+<member name="P:CIS4250Fall2020QwiloFashionStore.My.MyWebExtension.Log">
+ <summary>
+ Returns the Asp log object.
+ </summary>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._metaDescription">
+<summary>
+metaDescription control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._metaKeywords">
+<summary>
+metaKeywords control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._dynamicTitle">
+<summary>
+dynamicTitle control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._lblProductList">
+<summary>
+lblProductList control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._lblBreadCrumbMainCategory">
+<summary>
+lblBreadCrumbMainCategory control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._lblBreadCrumbSubCategory">
+<summary>
+lblBreadCrumbSubCategory control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._lblMainCategoryName">
+<summary>
+lblMainCategoryName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._SqlDSSubCategory">
+<summary>
+SqlDSSubCategory control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._rpSubCategory">
+<summary>
+rpSubCategory control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._SqlDSProductListWS">
+<summary>
+SqlDSProductListWS control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Category._rpSubProductListWS">
+<summary>
+rpSubProductListWS control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Email._form1">
+<summary>
+form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Email._tbName">
+<summary>
+tbName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Email._tbEmail">
+<summary>
+tbEmail control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Email._tbSubject">
+<summary>
+tbSubject control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Email._tbMessage">
+<summary>
+tbMessage control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Email._btnSend">
+<summary>
+btnSend control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Email._lblReturnMessage">
+<summary>
+lblReturnMessage control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._head">
+<summary>
+head control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._form1">
+<summary>
+form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._lblMainCategory2">
+<summary>
+lblMainCategory2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._DropDownList1">
+<summary>
+DropDownList1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._SqlDSMainCategory">
+<summary>
+SqlDSMainCategory control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._rpMainCategory">
+<summary>
+rpMainCategory control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._hrefDestination">
+<summary>
+hrefDestination control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._hlLogin">
+<summary>
+hlLogin control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._hlLogout">
+<summary>
+hlLogout control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._lblCustomer">
+<summary>
+lblCustomer control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._tbSearch">
+<summary>
+tbSearch control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._btnSearch">
+<summary>
+btnSearch control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Layout._ContentPlaceHolder1">
+<summary>
+ContentPlaceHolder1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Login._tbEmail">
+<summary>
+tbEmail control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Login._tbPassword">
+<summary>
+tbPassword control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Login._btnLogin">
+<summary>
+btnLogin control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Login._lblMessage">
+<summary>
+lblMessage control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Payment._form1">
+<summary>
+form1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Payment._tbCreditCard">
+<summary>
+tbCreditCard control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Payment._btnAPI">
+<summary>
+btnAPI control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Payment._lblReturnAuthCode">
+<summary>
+lblReturnAuthCode control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Payment._lblReturnTranId">
+<summary>
+lblReturnTranId control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.Payment._lblReturnArray">
+<summary>
+lblReturnArray control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._metaDescription">
+<summary>
+metaDescription control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._metaKeywords">
+<summary>
+metaKeywords control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._dynamicTitle">
+<summary>
+dynamicTitle control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._imgProduct">
+<summary>
+imgProduct control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._lblProductName">
+<summary>
+lblProductName control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._lblPrice">
+<summary>
+lblPrice control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._lblDiscount">
+<summary>
+lblDiscount control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._lblRating">
+<summary>
+lblRating control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._lblProductNumber">
+<summary>
+lblProductNumber control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._tbQuantity">
+<summary>
+tbQuantity control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._btnAddtoCart">
+<summary>
+btnAddtoCart control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ProductDetail._lblProductDescription">
+<summary>
+lblProductDescription control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ViewCart._SqlDSCart">
+<summary>
+SqlDSCart control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ViewCart._gvCart">
+<summary>
+gvCart control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ViewCart1._btnEmptyCart">
+<summary>
+btnEmptyCart control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ViewCart1._sqlDSCart1">
+<summary>
+sqlDSCart1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ViewCart1._lvCart">
+<summary>
+lvCart control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ViewCart1._show_prev">
+<summary>
+show_prev control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ViewCart1._DataPager1">
+<summary>
+DataPager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ViewCart1._show_next">
+<summary>
+show_next control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:CIS4250Fall2020QwiloFashionStore.ViewCart1._lblTotalCart">
+<summary>
+lblTotalCart control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+</members>
+</doc>

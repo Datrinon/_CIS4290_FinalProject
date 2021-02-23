@@ -1,0 +1,1 @@
+﻿SELECT SUM(Price * Quantity) FROM Cart;
