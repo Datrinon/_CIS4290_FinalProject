@@ -1,44 +1,401 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>@ViewBag.Title - QWILO MVC</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="@Url.Content("~/Content/QwiloStore/images/favicon.ico")" />
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/qwilo/css")
+    @*
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <!-- bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- REVOLUTION STYLE SHEETS -->
+        <link href="revolution/css/settings.css" rel="stylesheet" type="text/css">
+        <!-- main style -->
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <!-- responsive -->
+        <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+        <!-- custom -->
+        <link href="css/custom.css" rel="stylesheet" type="text/css" />
+    *@
 
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+    <!-- loading -->
+    <div id="loading">
+        <div id="loading-center">
+            <img src="@Url.Content("~/Content/QwiloStore/images/loader.png")" alt="loder">
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <!-- loading End -->
+    <!--=================================
+    header -->
+    <header>
+        <!-- menu start -->
+        <nav id="menu-1" class="mega-menu">
+            <!-- menu list items container -->
+            <section class="menu-list-items">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-2 lg-one">
+                            <!-- menu logo -->
+                            <ul class="menu-logo">
+                                <li>
+                                    <a href="">
+                                        <!-- TODO REPLACE WITH ACTION LINK. -->
+                                        <img id="logo_img" src="images/logo.png" alt="logo">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-8 d-flex justify-content-center">
+                            <!-- menu links -->
+                            <ul class="menu-links">
+                                <!-- active class -->
+                                @*<li class="active"><a href="Default.aspx">HOME</a></li>*@
+                                <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                                <li>@Html.ActionLink("About", "About", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                                <li>
+                                    <a href="javascript:void(0)">SHOP</a>
+                                    <!-- drop down multilevel  -->
+                                    <!-- TODO ADD CATEGORIES FROM DATABASE. -->
+                                    <ul class="drop-down-multilevel">
+                                        <li> Placeholder </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 no-spec">
+                            <ul class="menu-sidebar pull-right">
+                                <!--Login/Logout-->
+                                @Html.Partial("_LoginPartial")
+                                <!-- Shopping Cart -->
+                                <li class="shop-cart">
+                                    <div class="iq-pos-r">
+                                        @* TODO: ADD SHOPPING CART LINK HERE *@
+                                        <a href="" class="iq-cart iq-pos-r" id="cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i>@*<%--<span class="cart-count"></span>--%>*@</a>
+                                        <!-- / Shopping Cart END -->
+                                    </div>
+                                </li>
+                                <li>
+                                    <!-- TODO ADD SEARCH BAR -->
+                                    <input type="submit" value="Filter" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </nav>
+    </header>
+    <!--=================================
+    header END-->
+    <!-- ContentPlaceHolder -->
+    <div class="container body-content">
+        @*<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>*@
+        @RenderBody() @*C# Equivalent*@
+    </div>
+    <!-- ContentPlaceHolder END -->
+    <!-- Footer  -->
+    <footer class="iq-footer particles position-relative">
+        <div class="plus">+</div>
+        <div class="triangle"></div>
+        <div class="shape-1"><img src="images/shape/01.png" alt="#"></div>
+        <!-- footer top -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-6 col-sm-12 re-mtb-30">
+                        <h5 class="small-title">Shopping</h5>
+                        <ul class="menu">
+                            <li><a href="#">Men</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Kids</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 re-mtb-30">
+                        <h5 class="small-title">Useful Links</h5>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <ul class="menu">
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">T&C</a></li>
+                                    <li><a href="#">Terms Of Use</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <ul class="menu">
+                                    <li><a href="#">Shipping</a></li>
+                                    <li><a href="#">Cancellation</a></li>
+                                    <li><a href="#">Returns</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 re-mtb-30">
+                        <div class="download-box">
+                            <h5 class="small-title">Experience App On Mobile</h5>
+                            <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <a href="#"><img class="img-fluid" src="images/download/playstore.png" alt="#"></a>
+                            <a href="#"><img class="img-fluid img-2" src="images/download/appstore.png" alt="#"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 re-mtb-30">
+                        <div class="contact-bg">
+                            <h5 class="small-title">Contact Us</h5>
+                            <ul class="iq-contact">
+                                <li>
+                                    <div class="round"></div>
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    <p>1234 North Luke Lane, South Bend, IN 360001.</p>
+                                </li>
+                                <li>
+                                    <div class="round"></div>
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <p>+0123 456 789</p>
+                                </li>
+                                <li>
+                                    <div class="round"></div>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <p>mail@qwilo.com</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="media-box">
+                            <h6>Follow on Social Media:</h6>
+                            <ul class="iq-media-blog text-left">
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google"></i></a></li>
+                                <li><a href="#"><i class="fa fa-github"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer top end -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <!-- footer bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-12 col-sm-12 text-center re-tb-spec order-lg-2 order-md-1">
+                        <div class="footer-logo">
+                            <a href="/">
+                                <img id="footer_logo_img" class="img-fluid" src="images/logo.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-7 re-tb-spec order-lg-1 order-md-2">
+                        <div class="iq-copyright text-left">
+                            Copyright <a href="#">Group 4 - @DateTime.Now.Year.</a>All Rights Reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer bottom end -->
+    </footer>
+    <!--=================================
+    Footer end-->
+    <!-- back-to-top -->
+    <div id="back-to-top">
+        <a class="top" id="top" href="#top"> <i class="fa fa-long-arrow-up" aria-hidden="true"></i> </a>
+    </div>
+    <!-- back-to-top End -->
+    @Scripts.Render("~/bundles/qwilo/js")
+    < !--================ Jquery ================= -->
+@*
+    <!-- Jquery  -->
+    <script src="js/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Mega Menu -->
+    <script src="js/mega-menu/mega_menu.js"></script>
+    <script src="js/ionicons.js"></script>
+    <!-- Main -->
+    <script src="js/main.js"></script>
+    <!-- REVOLUTION JS FILES -->
+    <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->
+    <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+
+    <!-- Custom -->
+    <script src="js/custom.js"></script>
+*@
+<script>
+  var revapi19, tpj;
+  (function() {
+      if (!/ loaded | interactive | complete /.test(document.readyState)) document.addEventListener("DOMContentLoaded", onLoad)
+      else
+          onLoad();
+
+      function onLoad()
+{
+          if (tpj === undefined)
+    {
+              tpj = jQuery;
+
+              if ("off" == "on") tpj.noConflict();
+          }
+          if (tpj("#rev_slider_19_1").revolution == undefined)
+    {
+              revslider_showDoubleJqueryError("#rev_slider_19_1");
+          }
+    else
+    {
+              revapi19 = tpj("#rev_slider_19_1").show().revolution({
+                  sliderType: "standard",
+                  jsFileLocation: "//localhost/revslider-standalone/revslider/public/assets/js/",
+                  sliderLayout: "fullwidth",
+                  dottedOverlay: "none",
+                  delay: 9000,
+                  navigation:
+            {
+                      keyboardNavigation: "off",
+                      keyboard_direction: "horizontal",
+                      mouseScrollNavigation: "off",
+                      mouseScrollReverse: "default",
+                      onHoverStop: "off",
+                      arrows:
+                {
+                          style: "persephone",
+                          enable: true,
+                          hide_onmobile: false,
+                          hide_onleave: false,
+                          tmp: '',
+                          left:
+                    {
+                              h_align: "left",
+                              v_align: "center",
+                              h_offset: 20,
+                              v_offset: 0
+                          },
+                          right:
+                    {
+                              h_align: "right",
+                              v_align: "center",
+                              h_offset: 20,
+                              v_offset: 0
+                          }
+                      }
+                  },
+                  visibilityLevels:[1240, 1024, 778, 480],
+                  gridwidth: 1170,
+                  gridheight: 790,
+                  lazyType: "none",
+                  parallax:
+            {
+                      type: "mouse",
+                      origo: "enterpoint",
+                      speed: 400,
+                      speedbg: 0,
+                      speedls: 0,
+                      levels:[5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 51, 55],
+                  },
+                  shadow: 0,
+                  spinner: "spinner0",
+                  stopLoop: "off",
+                  stopAfterLoops: -1,
+                  stopAtSlide: -1,
+                  shuffle: "off",
+                  autoHeight: "off",
+                  disableProgressBar: "on",
+                  hideThumbsOnMobile: "off",
+                  hideSliderAtLimit: 0,
+                  hideCaptionAtLimit: 0,
+                  hideAllCaptionAtLilmit: 0,
+                  debugMode: false,
+                  fallbacks:
+            {
+                      simplifyAll: "off",
+                      nextSlideOnWindowFocus: "off",
+                      disableFocusListener: false,
+                  }
+              });
+          }; /* END OF revapi call */
+      }; /* END OF ON LOAD FUNCTION */
+  }
+()); /* END OF WRAPPING FUNCTION */
+</script>
+@RenderSection("scripts", required: false)
 </body>
 </html>
+
+@*
+        <!--
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Movie App</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("MVC Movie", "Index", "Movies", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Movie App</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>
+        -->
+*@

@@ -1,0 +1,50 @@
+/*
+
+Qwilo - Multipurpose Responsive HTML5 Template
+Author: iqonicthemes.in
+Version: 1.0
+Design and Developed by: iqonicthemes.in
+
+: This is color stylesheet of Color Scheme.
+
+*/
+
+/************************* selection *************************/
+*::-moz-selection { background: #48dbf9; color: #ffffff; text-shadow: none; }
+::-moz-selection { background: #48dbf9; color: #ffffff; text-shadow: none; }
+::selection { background: #48dbf9; color: #ffffff; text-shadow: none; }
+a { color: #48dbf9; }
+a:focus, a:hover { color: #48dbf9; }
+
+/*----------------------------------------------------------------------
+                        Buttons
+-----------------------------------------------------------------------*/
+.button { background-color: #48dbf9; }
+
+/*---------------------------------------------------------------------
+                            Text Color 
+-----------------------------------------------------------------------*/
+header .menu-sidebar.pull-right a:hover, .cart-product .cart-price ins, .shop-price strong, .owl-carousel.arrow-1 .owl-nav i, footer .footer-top .iq-contact i, .iq-copyright a, footer .footer-top .iq-media-blog li a:hover, footer .footer-top .menu li a:hover, footer .footer-top .menu li.active a, .mega-menu .drop-down a:hover, .mega-menu .drop-down-tab-bar a:hover, .mega-menu .drop-down a:hover i, .mega-menu .drop-down-tab-bar a:hover i, .mega-menu .drop-down a:hover, .mega-menu .drop-down-tab-bar a:hover, .search__info, .topbar .topbar-right li a:hover, .iq-breadcrumb a:focus, .iq-breadcrumb a:hover, .iq-cartbox .iq-carttotal .iq-font-green, .iq-font-green, .iq-blogdetailbox .iq-sidebar-widget .iq-widget-search i, .iq-blogdetailbox .iq-sidebar-widget ul.iq-tag li a:hover,.iq-blogdetailbox .iq-comment-list .btn-black.green,.under-maintenance .iq-media-blog li a:hover { color: #48dbf9 !important; }
+.iq-breadcrumb a:focus, .iq-breadcrumb a { color: #222222; }
+
+/*---------------------------------------------------------------------
+                          Background Color 
+-----------------------------------------------------------------------*/
+.iq-collection .iq-sale, .iq-tabbing .nav-pills .nav-link.active, .iq-tabbing .nav-pills .show>.nav-link, .mega-menu .menu-links>li.active>a:before, .mega-menu .menu-links>li:hover>a:before, .cart-count, .owl-carousel.arrow-1 .owl-nav i:hover, #back-to-top .top:hover, .mega-menu .drop-down-multilevel li:hover, .btn-black:hover, .mega-menu .menu-links>li.active ul.drop-down-multilevel li.active >a, .silly_scrollbar::-webkit-scrollbar-thumb, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-slider-range.ui-widget-header, .pagi-box .page-item.active .page-link, .pagi-box .page-link:hover, .iq-blogdetailbox .iq-blogbox .iq-blog-entry .iq-entry-tag span,.iq-blogdetailbox .info-block,.iq-contactbox .contact-bg { background-color: #48dbf9; }
+
+/*---------------------------------------------------------------------
+                       Background Opacity 
+---------------------------------------------------------------------*/
+.iq-services .round, .heading-title .title:before, h5.small-title:before, .iq-breadcrumb .iq-breadcrumb-box, .iq-detailleft .tab-box .nav-item a:before, .iq-breadcrumb .iq-breadcrumb-box:after, .product-box h5:before, .iq-cartbox table.table-bordered th span:before, .iq-cartbox .iq-totale h6:before, .iq-checkout form.billing-form h5:before, .iq-blogbox .iq-entry-title h5:before, .iq-blogdetailbox .iq-sidebar-widget h5:before ,.iq-blogdetailbox .blog-commentbox h3:before,.heading-title .title:before{ background: rgba(72, 219, 249, 0.5); }
+.iq-blogdetailbox .iq-blogbox .iq-detail-box .special-text i{color: rgba(72, 219, 249, 0.5);}
+
+
+
+/*---------------------------------------------------------------------
+                           Boder Color 
+---------------------------------------------------------------------*/
+.button:before, .tab-box .review-input form .form-control:hover, .iq-cartbox .iq-update_cart form input.form-control:focus, .iq-checkout form.billing-form .form-control:focus,.iq-blogdetailbox .blog-contact .contact-form .section-field input:focus, .blog-contact .contact-form .section-field.textarea textarea:focus,.iq-contactbox .contact-box input:hover, .iq-contactbox .contact-box input:focus, .iq-contactbox .contact-box textarea:focus, .iq-contactbox .contact-box textarea:hover { border: 2px solid #48dbf9; }
+.mega-menu .drop-down, .mega-menu .drop-down-tab-bar { border: 1px solid #48dbf9; }
+.owl-carousel.arrow-1 .owl-nav i:hover, .pagi-box .page-item.active .page-link, .pagi-box .page-link:hover { border-color: #48dbf9; color: #ffffff !important; }
+.search::before, .search::after { border: 1.5em solid #48dbf9; }
+.tab-box .nav-tabs .nav-link.active { border-bottom: 2px solid #48dbf9; }
