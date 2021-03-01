@@ -42,19 +42,20 @@ namespace QwiloMVCStore
                     "~/Scripts/QwiloStore/js/bootstrap.min.js",
                     "~/Scripts/QwiloStore/js/mega-menu/mega_menu.js",
                     "~/Scripts/QwiloStore/js/ionicons.js",
-                    "~/Scripts/QwiloStore/js/main.js",
-                    "~/Scripts/QwiloStore/revolution/js/jquery.themepunch.tools.min.js",
-                    "~/Scripts/QwiloStore/revolution/js/jquery.themepunch.revolution.min.js",
-                    "~/Scripts/QwiloStore/revolution/js/extensions/revolution.extension.actions.min.js",
-                    "~/Scripts/QwiloStore/revolution/js/extensions/revolution.extension.carousel.min.js",
-                    "~/Scripts/QwiloStore/revolution/js/extensions/revolution.extension.kenburn.min.js",
-                    "~/Scripts/QwiloStore/revolution/js/extensions/revolution.extension.layeranimation.min.js",
-                    "~/Scripts/QwiloStore/revolution/js/extensions/revolution.extension.migration.min.js",
-                    "~/Scripts/QwiloStore/revolution/js/extensions/revolution.extension.navigation.min.js",
-                    "~/Scripts/QwiloStore/revolution/js/extensions/revolution.extension.parallax.min.js",
-                    "~/Scripts/QwiloStore/revolution/js/extensions/revolution.extension.slideanims.min.js",
-                    "~/Scripts/QwiloStore/revolution/js/extensions/revolution.extension.video.min.js",
-                    "~/Scripts/QwiloStore/js/custom.js"));
+                    "~/Scripts/QwiloStore/js/main.js"));
+            // JavaScript | Revolution Slider
+            bundles.Add(new ScriptBundle("~/bundles/qwilo/revolution/extensions").Include(
+                 "~/Scripts/QwiloStore/revolution/jquery.themepunch.tools.min.js",
+                    "~/Scripts/QwiloStore/revolution/jquery.themepunch.revolution.min.js",
+                    "~/Scripts/QwiloStore/revolution/extensions/revolution.extension.actions.min.js",
+                    "~/Scripts/QwiloStore/revolution/extensions/revolution.extension.carousel.min.js",
+                    "~/Scripts/QwiloStore/revolution/extensions/revolution.extension.kenburn.min.js",
+                    "~/Scripts/QwiloStore/revolution/extensions/revolution.extension.layeranimation.min.js",
+                    "~/Scripts/QwiloStore/revolution/extensions/revolution.extension.migration.min.js",
+                    "~/Scripts/QwiloStore/revolution/extensions/revolution.extension.navigation.min.js",
+                    "~/Scripts/QwiloStore/revolution/extensions/revolution.extension.parallax.min.js",
+                    "~/Scripts/QwiloStore/revolution/extensions/revolution.extension.slideanims.min.js",
+                    "~/Scripts/QwiloStore/revolution/extensions/revolution.extension.video.min.js"));
         }
     }
 }

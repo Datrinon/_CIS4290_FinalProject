@@ -7,8 +7,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Font Awesome Icons via CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <!-- Favicon -->
     <link rel="shortcut icon" href="@Url.Content("~/Content/QwiloStore/images/favicon.ico")" />
+    <!-- Default CSS bundle.-->
     @Styles.Render("~/Content/css")
+    <!-- QWILO bundle -- includes bootstrap, Revolution CSS, Main Style, RWD, and Custom CSS file.-->
     @Styles.Render("~/bundles/qwilo/css")
     @*
         <!-- Favicon -->
@@ -51,7 +56,7 @@
                                 <li>
                                     <a href="">
                                         <!-- TODO REPLACE WITH ACTION LINK. -->
-                                        <img id="logo_img" src="images/logo.png" alt="logo">
+                                        <img id="logo_img" src="@Url.Content("~/images/logo.png")" alt="logo">
                                     </a>
                                 </li>
                             </ul>
@@ -101,7 +106,7 @@
     <!--=================================
     header END-->
     <!-- ContentPlaceHolder -->
-    <div class="container body-content">
+    <div class="body-content">
         @*<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>*@
         @RenderBody() @*C# Equivalent*@
@@ -111,7 +116,7 @@
     <footer class="iq-footer particles position-relative">
         <div class="plus">+</div>
         <div class="triangle"></div>
-        <div class="shape-1"><img src="images/shape/01.png" alt="#"></div>
+        <div class="shape-1"><img src="@Url.Content("~/images/shape/01.png")" alt="#"></div>
         <!-- footer top -->
         <div class="footer-top">
             <div class="container">
@@ -150,8 +155,8 @@
                         <div class="download-box">
                             <h5 class="small-title">Experience App On Mobile</h5>
                             <p>Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                            <a href="#"><img class="img-fluid" src="images/download/playstore.png" alt="#"></a>
-                            <a href="#"><img class="img-fluid img-2" src="images/download/appstore.png" alt="#"></a>
+                            <a href="#"><img class="img-fluid" src="@Url.Content("~/images/download/playstore.png")" alt="#"></a>
+                            <a href="#"><img class="img-fluid img-2" src="@Url.Content("~/images/download/appstore.png")" alt="#"></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12 re-mtb-30">
@@ -203,7 +208,7 @@
                     <div class="col-lg-4 col-md-12 col-sm-12 text-center re-tb-spec order-lg-2 order-md-1">
                         <div class="footer-logo">
                             <a href="/">
-                                <img id="footer_logo_img" class="img-fluid" src="images/logo.png" alt="logo">
+                                <img id="footer_logo_img" class="img-fluid" src="@Url.Content("~/images/logo.png")" alt="logo">
                             </a>
                         </div>
                     </div>
@@ -221,135 +226,134 @@
     Footer end-->
     <!-- back-to-top -->
     <div id="back-to-top">
-        <a class="top" id="top" href="#top"> <i class="fa fa-long-arrow-up" aria-hidden="true"></i> </a>
+        <a class="top" id="top" href="#top"> <i class="fas fa-long-arrow-up" aria-hidden="true"></i> </a>
     </div>
     <!-- back-to-top End -->
     @Scripts.Render("~/bundles/qwilo/js")
-    < !--================ Jquery ================= -->
-@*
-    <!-- Jquery  -->
-    <script src="js/jquery.min.js"></script>
-    <!-- bootstrap -->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Mega Menu -->
-    <script src="js/mega-menu/mega_menu.js"></script>
-    <script src="js/ionicons.js"></script>
-    <!-- Main -->
-    <script src="js/main.js"></script>
-    <!-- REVOLUTION JS FILES -->
-    <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-    <!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->
-    <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+    @Scripts.Render("~/bundles/qwilo/revolution/extensions")
+    <!--================ Jquery ================= -->
+    @*
+        <!-- Jquery  -->
+        <script src="js/jquery.min.js"></script>
+        <!-- bootstrap -->
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Mega Menu -->
+        <script src="js/mega-menu/mega_menu.js"></script>
+        <script src="js/ionicons.js"></script>
+        <!-- Main -->
+        <script src="js/main.js"></script>
+        <!-- REVOLUTION JS FILES -->
+        <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
+        <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+        <!-- SLIDER REVOLUTION 5.0 EXTENSIONS -->
+        <script src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
+        <script src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+        <script src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+        <script src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
+        <script src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+        <script src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+        <script src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+        <script src="revolution/js/extensions/revolution.extension.video.min.js"></script>
 
+
+
+    *@
     <!-- Custom -->
-    <script src="js/custom.js"></script>
-*@
-<script>
-  var revapi19, tpj;
-  (function() {
-      if (!/ loaded | interactive | complete /.test(document.readyState)) document.addEventListener("DOMContentLoaded", onLoad)
-      else
-          onLoad();
+    <script src="@Url.Content("~/scripts/QwiloStore/js/custom.js")"></script>
+    <script>
+        var revapi19, tpj;
+        (function () {
+            if (!/ loaded | interactive | complete /.test(document.readyState)) document.addEventListener("DOMContentLoaded", onLoad)
+            else
+                onLoad();
 
-      function onLoad()
-{
-          if (tpj === undefined)
-    {
-              tpj = jQuery;
+            function onLoad() {
+                if (tpj === undefined) {
+                    tpj = jQuery;
 
-              if ("off" == "on") tpj.noConflict();
-          }
-          if (tpj("#rev_slider_19_1").revolution == undefined)
-    {
-              revslider_showDoubleJqueryError("#rev_slider_19_1");
-          }
-    else
-    {
-              revapi19 = tpj("#rev_slider_19_1").show().revolution({
-                  sliderType: "standard",
-                  jsFileLocation: "//localhost/revslider-standalone/revslider/public/assets/js/",
-                  sliderLayout: "fullwidth",
-                  dottedOverlay: "none",
-                  delay: 9000,
-                  navigation:
-            {
-                      keyboardNavigation: "off",
-                      keyboard_direction: "horizontal",
-                      mouseScrollNavigation: "off",
-                      mouseScrollReverse: "default",
-                      onHoverStop: "off",
-                      arrows:
-                {
-                          style: "persephone",
-                          enable: true,
-                          hide_onmobile: false,
-                          hide_onleave: false,
-                          tmp: '',
-                          left:
-                    {
-                              h_align: "left",
-                              v_align: "center",
-                              h_offset: 20,
-                              v_offset: 0
-                          },
-                          right:
-                    {
-                              h_align: "right",
-                              v_align: "center",
-                              h_offset: 20,
-                              v_offset: 0
-                          }
-                      }
-                  },
-                  visibilityLevels:[1240, 1024, 778, 480],
-                  gridwidth: 1170,
-                  gridheight: 790,
-                  lazyType: "none",
-                  parallax:
-            {
-                      type: "mouse",
-                      origo: "enterpoint",
-                      speed: 400,
-                      speedbg: 0,
-                      speedls: 0,
-                      levels:[5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 51, 55],
-                  },
-                  shadow: 0,
-                  spinner: "spinner0",
-                  stopLoop: "off",
-                  stopAfterLoops: -1,
-                  stopAtSlide: -1,
-                  shuffle: "off",
-                  autoHeight: "off",
-                  disableProgressBar: "on",
-                  hideThumbsOnMobile: "off",
-                  hideSliderAtLimit: 0,
-                  hideCaptionAtLimit: 0,
-                  hideAllCaptionAtLilmit: 0,
-                  debugMode: false,
-                  fallbacks:
-            {
-                      simplifyAll: "off",
-                      nextSlideOnWindowFocus: "off",
-                      disableFocusListener: false,
-                  }
-              });
-          }; /* END OF revapi call */
-      }; /* END OF ON LOAD FUNCTION */
-  }
-()); /* END OF WRAPPING FUNCTION */
-</script>
-@RenderSection("scripts", required: false)
+                    if ("off" == "on") tpj.noConflict();
+                }
+                if (tpj("#rev_slider_19_1").revolution == undefined) {
+                    revslider_showDoubleJqueryError("#rev_slider_19_1");
+                }
+                else {
+                    revapi19 = tpj("#rev_slider_19_1").show().revolution({
+                        sliderType: "standard",
+                        jsFileLocation: "//localhost/revslider-standalone/revslider/public/assets/js/",
+                        sliderLayout: "fullwidth",
+                        dottedOverlay: "none",
+                        delay: 9000,
+                        navigation:
+                        {
+                            keyboardNavigation: "off",
+                            keyboard_direction: "horizontal",
+                            mouseScrollNavigation: "off",
+                            mouseScrollReverse: "default",
+                            onHoverStop: "off",
+                            arrows:
+                            {
+                                style: "persephone",
+                                enable: true,
+                                hide_onmobile: false,
+                                hide_onleave: false,
+                                tmp: '',
+                                left:
+                                {
+                                    h_align: "left",
+                                    v_align: "center",
+                                    h_offset: 20,
+                                    v_offset: 0
+                                },
+                                right:
+                                {
+                                    h_align: "right",
+                                    v_align: "center",
+                                    h_offset: 20,
+                                    v_offset: 0
+                                }
+                            }
+                        },
+                        visibilityLevels: [1240, 1024, 778, 480],
+                        gridwidth: 1170,
+                        gridheight: 790,
+                        lazyType: "none",
+                        parallax:
+                        {
+                            type: "mouse",
+                            origo: "enterpoint",
+                            speed: 400,
+                            speedbg: 0,
+                            speedls: 0,
+                            levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 51, 55],
+                        },
+                        shadow: 0,
+                        spinner: "spinner0",
+                        stopLoop: "off",
+                        stopAfterLoops: -1,
+                        stopAtSlide: -1,
+                        shuffle: "off",
+                        autoHeight: "off",
+                        disableProgressBar: "on",
+                        hideThumbsOnMobile: "off",
+                        hideSliderAtLimit: 0,
+                        hideCaptionAtLimit: 0,
+                        hideAllCaptionAtLilmit: 0,
+                        debugMode: false,
+                        fallbacks:
+                        {
+                            simplifyAll: "off",
+                            nextSlideOnWindowFocus: "off",
+                            disableFocusListener: false,
+                        }
+                    });
+                }; /* END OF revapi call */
+            }; /* END OF ON LOAD FUNCTION */
+        }
+            ()); /* END OF WRAPPING FUNCTION */
+    </script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 
