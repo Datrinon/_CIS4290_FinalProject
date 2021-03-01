@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'aspnet-QwiloMVCStore-20210222042957.dbo.Cart' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="CartNo" />
+      <PropertyRef Name="ProductNumber" />
+      <PropertyRef Name="ProductName" />
+      <PropertyRef Name="Price" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="CartNo" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ProductNumber" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="ProductName" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Price" Type="numeric" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="lastName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="phone" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MasterCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="CategoryName" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="Parent" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductNumber" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ProductName" Type="char" MaxLength="30" Nullable="false" />
+    <Property Name="ProductDescription" Type="char" MaxLength="300" Nullable="false" />
+    <Property Name="UnitPrice" Type="numeric" Precision="7" Scale="2" Nullable="false" />
+    <Property Name="MainCategoryID" Type="int" Nullable="false" />
+    <Property Name="SubCategoryID" Type="int" Nullable="false" />
+    <Property Name="Featured" Type="int" />
+    <Property Name="Rating" Type="int" />
+  </EntityType>
+  <Association Name="FK_Cart_CustomerId">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MasterCategory" EntityType="Self.MasterCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cart" EntityType="Self.Cart" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Cart].[Id] AS [Id], 
+    [Cart].[CustomerId] AS [CustomerId], 
+    [Cart].[CartNo] AS [CartNo], 
+    [Cart].[ProductNumber] AS [ProductNumber], 
+    [Cart].[ProductName] AS [ProductName], 
+    [Cart].[Price] AS [Price], 
+    [Cart].[Quantity] AS [Quantity]
+    FROM [dbo].[Cart] AS [Cart]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Cart_CustomerId" Association="Self.FK_Cart_CustomerId">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
