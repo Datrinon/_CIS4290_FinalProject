@@ -27,8 +27,8 @@ Design and Developed by: iqonicthemes.in
 Shopping Cart
 -----------------------------------------------------------------------*/
 
-.cart-count { background-color: #7ef3d1; border-radius: 100px; color: white; display: inline-block; font-size: 12px; top: -10px; width: 20px; text-align: center; height: 20px; line-height: 20px; vertical-align: middle; white-space: nowrap; margin-left: 8px; position: absolute; left: 0; }
-.cart-box { background: #ffffff; width: 300px; border-radius: 3px; padding: 15px; display: none; position: absolute; right: 35px; top: inherit; -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); -webkit-transition: all 0.3s ease-in-out; }
+.cart-count { background-color: #7ef3d1; border-radius: 100px; color: white; display: inline-block; font-size: 12px; top: -10px; width: 20px; text-align: center; height: 20px; line-height: 20px; vertical-align: middle; white-space: nowrap; margin-left: 8px; position: relative; left: -15px; }
+.cart-box { background: #ffffff; width: 300px; border-radius: 3px; padding: 15px; display: none; position: relative; right: 35px; top: inherit; -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1); -webkit-transition: all 0.3s ease-in-out; }
 .cart-box:after { content: " "; position: absolute; height: 0; width: 0; bottom: 100%; right: 20px; border: solid transparent; border-bottom-color: white; margin-left: -10px; border-width: 10px; }
 .cart-box .cart-header { padding-bottom: 15px; }
 a.iq-cart { font-size: 20px; color: #ffffff; }

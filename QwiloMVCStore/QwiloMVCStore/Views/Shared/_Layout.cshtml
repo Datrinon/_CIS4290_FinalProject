@@ -66,35 +66,28 @@
                             <ul class="menu-links">
                                 <!-- active class -->
                                 @*<li class="active"><a href="Default.aspx">HOME</a></li>*@
-                                <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
-                                <li>@Html.ActionLink("About", "About", "Home")</li>
-                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-
+                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                 <li>
                                     <a href="javascript:void(0)">SHOP</a>
                                     <!-- drop down multilevel  -->
-                                    <!-- TODO ADD CATEGORIES FROM DATABASE. -->
+                                    <!-- TODO CONSIDER IF POSSIBLE TO USE SQL INSTEAD OF HARDCODING IN ACTION LINKS -->
                                     <ul class="drop-down-multilevel">
-                                        <li> Placeholder </li>
+                                        <li> @Html.ActionLink("Women", "Index", "MasterCategories") </li>
+                                        <li> @Html.ActionLink("Men", "Index", "MasterCategories") </li>
+                                        <li> @Html.ActionLink("Children", "Index", "MasterCategories") </li>
                                     </ul>
                                 </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-2 no-spec">
-                            <ul class="menu-sidebar pull-right">
-                                <!--Login/Logout-->
+                                <li>@Html.ActionLink("About", "About", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                                 @Html.Partial("_LoginPartial")
-                                <!-- Shopping Cart -->
                                 <li class="shop-cart">
                                     <div class="iq-pos-r">
                                         @* TODO: ADD SHOPPING CART LINK HERE *@
-                                        <a href="" class="iq-cart iq-pos-r" id="cart"><i class="fa fa-shopping-basket" aria-hidden="true"></i>@*<%--<span class="cart-count"></span>--%>*@</a>
+                                        <a href="" class="iq-cart iq-pos-r" id="cart">
+                                            <i class="fas fa-shopping-cart" aria-hidden="true" style="color: black; outline-color: black; font-family:'Font Awesome 5 Free'; font-weight: 900;"></i><span class="cart-count">0</span>
+                                        </a>
                                         <!-- / Shopping Cart END -->
                                     </div>
-                                </li>
-                                <li>
-                                    <!-- TODO ADD SEARCH BAR -->
-                                    <input type="submit" value="Filter" />
                                 </li>
                             </ul>
                         </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QwiloMVCStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,9 @@ namespace QwiloMVCStore.Controllers
 {
     public class HomeController : Controller
     {
+
+        private QwiloStoreContext db = new QwiloStoreContext();
+
         public ActionResult Index()
         {
             return View();
