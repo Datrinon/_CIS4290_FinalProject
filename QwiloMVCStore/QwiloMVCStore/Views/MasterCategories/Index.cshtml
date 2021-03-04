@@ -1,11 +1,154 @@
-﻿@model IEnumerable<QwiloMVCStore.Models.MasterCategory>
+﻿@model IEnumerable<QwiloMVCStore.Models.Product>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Shop Clothing for " + ViewBag.Category;
 }
 
-<div class="container-fluid">
-    <h2>Index</h2>
+<!--======= Breadcrumb Left With BG Image =======-->
+<div class="iq-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-space">
+                    <div class="iq-breadcrumb-box" style="box-shadow: -9px 12px #4d9e9ecc;">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8">
+                                <!--Dynamic SubCategory Title + Dynamic ProductList Title-->
+                                <div class="breadcrumb-title" style="text-shadow: #fb3737 3px 3px;">
+                                    <h2>
+                                        @ViewBag.Title
+                                    </h2>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <nav aria-label="breadcrumb" class="text-right">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item">
+                                            <a href="/">
+                                                <i class="fas fa-home"></i>Home
+                                            </a>
+                                        </li>
+                                        <li class="breadcrumb-item active">
+                                            @Html.ActionLink((string)ViewBag.Category, "Index", new { id = ViewBag.CategoryId })
+                                        @* <!-- For adding subcategory, if desired.
+                                        <li class="breadcrumb-item active">
+                                        </li>
+                                        *@
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!--======= Breadcrumb Left With BG Image =======-->
+    <!--=================================
+    Main Content -->
+    <section class="iq-gridproduct particles position-relative">
+        <div class="circle"></div>
+        <div class="circle two"></div>
+        <div class="plus">+</div>
+        <div class="triangle"></div>
+        <div class="triangle two"></div>
+        <div class="square"></div>
+        <div class="shape-1"><img src="@Url.Content("~/images/shape/01.png")" alt=""></div>
+        <div class="shape-1 two"><img src="@Url.Content("~/images/shape/01.png")" alt=""></div>
+        <div class="shape-2"><img src="@Url.Content("~/images/shape/02.png")" alt=""></div>
+        <div class="shape-2 two"><img src="@Url.Content("~/images/shape/02.png")" alt=""></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                    <div class="shop-widget">
+                        <div class="iq-post-sidebar">
+                            <div class="shop-filter">
+                                <!-- /Categories Start -->
+                                <div class="product-box discount-box" style="box-shadow: -3px 3px #70b1b1; border: 1px solid #a0f0d9; border-radius: 5px;">
+                                    <!--SideBar SubCategory Display-->
+                                    <h5>Categories</h5>
+                                    <div class="iq-widget-menu">
+                                        <div class="silly_scrollbar">
+                                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
+                                                <div class="iq-widget-menu">
+                                                    <ul class="iq-pl-0">
+                                                        <!-- ASP Connection to database used to be on this line. -->
+                                                        <!-- It was supposed to be a radio button display. -->
+                                                        <!--SideBar List of SubCategory-->
+                                                        <li><a href="">Add </a></li>
+                                                        <li><a href="">Categories</a></li>
+                                                        <li><a href="">Here</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /Categories End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 re-mtb-30">
+                    <!-- shorting start -->
+                    <!-- Product listing start -->
+                    <asp:SqlDataSource ID="SqlDSProductListWS" ConnectionString="<%$ ConnectionStrings:ConnectionStringOnlineStore2 %>" SelectCommand="" runat="server"></asp:SqlDataSource>
+                @foreach (var item in Model)
+                {
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="iq-productbox iq-gridlist">
+                                <div class="media">
+                                    <div class="shopping-body">
+                                        <div class="product-image">
+                                            <!--Product Image Display-->
+                                            @{
+                                            string filePath = "~/productImages/" + item.ProductNumber.Trim() + ".jpg";
+                                            }
+                                            <img src="@Url.Content(filePath)" alt="@item.ProductName"/>
+                                        </div>
+                                        <div class="btn-box">
+                                            <!--Add Cart Display-->
+                                            @* TODO ADD CART BUTTON FUNCTIONALITY *@
+                                            <a class="button" href="#"><img src="@Url.Content("~/images/icon/001.png")" alt="">Add to cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="shopping-footer">
+                                            <div class="product-detail text-left">
+                                                <!--Product Name Display-->
+                                                @* TODO ADD PRODUCT FUNCTIONALITY *@
+                                                <h5><a href="#">@Html.DisplayFor(modelItem => item.ProductName)</a></h5>
+                                                <p>
+                                                    @Html.DisplayFor(modelItem => item.ProductNumber)
+                                                </p>
+                                                <div class="shop-price">
+                                                    <!--Product Price Display-->
+                                                    <p><strong>@Html.DisplayFor(modelItem => item.UnitPrice)</strong><p>
+                                                    @*<p style="color:red">TODO DISCOUNT HERE</p>*@
+                                                </div>
+                                                <!--Product Description Display-->
+                                                <p>@Html.DisplayFor(modelItem => item.ProductDescription)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        </div>
+    </section>
+    <!--=================================
+    Main Content -->
+
+
+
+@*<h2>Index</h2>
 
     <p>
         @Html.ActionLink("Create New", "Create")
@@ -13,36 +156,64 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryID)
+                @Html.DisplayNameFor(model => model.ProductNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
+                @Html.DisplayNameFor(model => model.ProductName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Parent)
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MainCategoryID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubCategoryID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Featured)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
             </th>
             <th></th>
         </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CategoryID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CategoryName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Parent)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MainCategoryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubCategoryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Featured)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+            </td>
+        </tr>
+    }
 
-    </table>
-</div>
+    </table>*@

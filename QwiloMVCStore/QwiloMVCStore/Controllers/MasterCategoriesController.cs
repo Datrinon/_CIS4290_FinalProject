@@ -15,33 +15,47 @@ namespace QwiloMVCStore.Controllers
         private QwiloStoreContext db = new QwiloStoreContext();
 
         // GET: MasterCategories
-        public ActionResult Index(int? id)
+        public ActionResult Index(int? id) // int? = nullable, so requests to MasterCategories/Index don't need an ID.
         {
             // Create list to contain ints
-            var PossibleParentIDs = new List<int>();
+            var PossibleMainCategoryIDs = new List<int>();
 
             // Query database for all parent IDs
-            var getParentIDsQuery = from entries in db.MasterCategories
-                                    orderby entries.Parent
-                                    select entries.Parent;
+            var getMainCategoryIDsQuery = from entries in db.Products
+                                    orderby entries.MainCategoryID
+                                    select entries.MainCategoryID;
 
             // After getting all parent IDs, add all *distinct* values to the list.
-            PossibleParentIDs.AddRange(getParentIDsQuery.Distinct());
+            PossibleMainCategoryIDs.AddRange(getMainCategoryIDsQuery.Distinct());
+            
 
             // Now, create another query to get all the categories.
-            var categories = from entries in db.MasterCategories
-                             select entries;
+            var categoryProducts = from entries in db.Products
+                                   select entries;
+
+
 
             // Filter categories if user specified a valid category.
-            if (id != null && PossibleParentIDs.Contains((int)id)) {
-                categories = categories.Where(entry => entry.Parent == id);
+            if (id != null && PossibleMainCategoryIDs.Contains((int)id)) {
+                categoryProducts = categoryProducts.Where(entry => entry.MainCategoryID == id);
+
+                // Get category and categoryIDs into  ViewBag for use in the View.
+                string category = db.MasterCategories.Where(col => col.Id == id).Select(e => e.CategoryName).Single().Trim();
+                ViewBag.Category = category;
+                ViewBag.CategoryID = id;
             }
 
-            return View(categories);
+            // Last check to make sure that they're not null.
+            ViewBag.Category = ViewBag.Category ?? "All";
+            ViewBag.CategoryID = ViewBag.CategoryID ?? 0;
+
+
+            return View(categoryProducts);
 
             // Extra note:
+            // The default parameter for assigned to the return statement View() (seen below) gets all entries.
             // db.MasterCategories.ToList()
-            // The default parameter for View -- gets all entries.
+
         }
 
         // GET: MasterCategories/Details/5
