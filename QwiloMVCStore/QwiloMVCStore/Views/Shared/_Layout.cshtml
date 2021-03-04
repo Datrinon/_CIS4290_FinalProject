@@ -54,10 +54,12 @@
                             <!-- menu logo -->
                             <ul class="menu-logo">
                                 <li>
-                                    <a href="">
-                                        <!-- TODO REPLACE WITH ACTION LINK. -->
+                                    @*
+                                    <a>
+                                        <!-- Keep this empty block here so the mobile button will load.
                                         <img id="logo_img" src="@Url.Content("~/images/logo.png")" alt="logo">
                                     </a>
+                                    *@
                                 </li>
                             </ul>
                         </div>
@@ -66,15 +68,16 @@
                             <ul class="menu-links">
                                 <!-- active class -->
                                 @*<li class="active"><a href="Default.aspx">HOME</a></li>*@
+                                <li><img id="logo_img" src="/images/logo.png" alt="logo"></li>
                                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                 <li>
                                     <a href="javascript:void(0)">SHOP</a>
                                     <!-- drop down multilevel  -->
                                     <!-- TODO CONSIDER IF POSSIBLE TO USE SQL INSTEAD OF HARDCODING IN ACTION LINKS -->
                                     <ul class="drop-down-multilevel">
-                                        <li> @Html.ActionLink("Women", "Index", "MasterCategories") </li>
-                                        <li> @Html.ActionLink("Men", "Index", "MasterCategories") </li>
-                                        <li> @Html.ActionLink("Children", "Index", "MasterCategories") </li>
+                                        <li> @Html.ActionLink("Women", "Index", "MasterCategories", new { id = 1 }, new { }) </li>
+                                        <li> @Html.ActionLink("Men", "Index", "MasterCategories", new { id = 2 }, new { }) </li>
+                                        <li> @Html.ActionLink("Children", "Index", "MasterCategories", new { id = 3 }, new { }) </li>
                                     </ul>
                                 </li>
                                 <li>@Html.ActionLink("About", "About", "Home")</li>

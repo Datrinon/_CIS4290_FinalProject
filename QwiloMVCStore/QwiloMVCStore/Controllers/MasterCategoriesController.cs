@@ -15,9 +15,33 @@ namespace QwiloMVCStore.Controllers
         private QwiloStoreContext db = new QwiloStoreContext();
 
         // GET: MasterCategories
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            return View(db.MasterCategories.ToList());
+            // Create list to contain ints
+            var PossibleParentIDs = new List<int>();
+
+            // Query database for all parent IDs
+            var getParentIDsQuery = from entries in db.MasterCategories
+                                    orderby entries.Parent
+                                    select entries.Parent;
+
+            // After getting all parent IDs, add all *distinct* values to the list.
+            PossibleParentIDs.AddRange(getParentIDsQuery.Distinct());
+
+            // Now, create another query to get all the categories.
+            var categories = from entries in db.MasterCategories
+                             select entries;
+
+            // Filter categories if user specified a valid category.
+            if (id != null && PossibleParentIDs.Contains((int)id)) {
+                categories = categories.Where(entry => entry.Parent == id);
+            }
+
+            return View(categories);
+
+            // Extra note:
+            // db.MasterCategories.ToList()
+            // The default parameter for View -- gets all entries.
         }
 
         // GET: MasterCategories/Details/5
