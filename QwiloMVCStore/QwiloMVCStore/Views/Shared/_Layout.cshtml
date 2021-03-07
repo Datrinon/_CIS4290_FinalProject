@@ -55,10 +55,11 @@
                             <ul class="menu-logo">
                                 <li>
                                     @*
-                                    <a>
-                                        <!-- Keep this empty block here so the mobile button will load.
-                                        <img id="logo_img" src="@Url.Content("~/images/logo.png")" alt="logo">
-                                    </a>
+                                            <a>
+                                                <!-- Keep this empty block here so the mobile button will load.
+
+        <a href="~/Views/Shared/_Layout.cshtml">~/Views/Shared/_Layout.cshtml</a>                     <img id="logo_img" src="@Url.Content("~/images/logo.png")" alt="logo">
+                                            </a>
                                     *@
                                 </li>
                             </ul>
@@ -73,7 +74,6 @@
                                 <li>
                                     <a href="javascript:void(0)">SHOP</a>
                                     <!-- drop down multilevel  -->
-                                    <!-- TODO CONSIDER IF POSSIBLE TO USE SQL INSTEAD OF HARDCODING IN ACTION LINKS -->
                                     <ul class="drop-down-multilevel">
                                         <li> @Html.ActionLink("Women", "Index", "MasterCategories", new { id = 1 }, new { }) </li>
                                         <li> @Html.ActionLink("Men", "Index", "MasterCategories", new { id = 2 }, new { }) </li>

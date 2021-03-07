@@ -21,34 +21,74 @@ namespace QwiloMVCStore.Controllers
             var PossibleMainCategoryIDs = new List<int>();
 
             // Query database for all parent IDs
-            var getMainCategoryIDsQuery = from entries in db.Products
+            var getMainCategoryIDs = from entries in db.Products
                                     orderby entries.MainCategoryID
                                     select entries.MainCategoryID;
 
             // After getting all parent IDs, add all *distinct* values to the list.
-            PossibleMainCategoryIDs.AddRange(getMainCategoryIDsQuery.Distinct());
+            PossibleMainCategoryIDs.AddRange(getMainCategoryIDs.Distinct());
             
 
-            // Now, create another query to get all the categories.
+            // Now, create another query to get all the products.
             var categoryProducts = from entries in db.Products
                                    select entries;
 
+            // And get all the subcategories associated with that range of products
+            var categoryNames = (from product in db.Products
+                                join category in db.MasterCategories
+                                on product.SubCategoryID equals category.Id
+                                select category.CategoryID).Distinct();
 
+
+            ViewBag.Category = "All";
+            ViewBag.CategoryID = 0;
+            ViewBag.CategoryNames = categoryNames.ToList();
 
             // Filter categories if user specified a valid category.
             if (id != null && PossibleMainCategoryIDs.Contains((int)id)) {
                 categoryProducts = categoryProducts.Where(entry => entry.MainCategoryID == id);
 
-                // Get category and categoryIDs into  ViewBag for use in the View.
-                string category = db.MasterCategories.Where(col => col.Id == id).Select(e => e.CategoryName).Single().Trim();
-                ViewBag.Category = category;
+                // Get category and categoryIDs into ViewBag for use in the View.
+                string categoryLabel = db.MasterCategories.Where(col => col.Id == id)
+                                                          .Select(e => e.CategoryName)
+                                                          .Single()
+                                                          .Trim();
+
+                // TODO: More efficient way to refactor this?
+                categoryNames = (from product in db.Products
+                                where product.MainCategoryID == id
+                                     join category in db.MasterCategories
+                                     on product.SubCategoryID equals category.Id
+                                     select category.CategoryID).Distinct();
+
+                // Filter down subcategories
+                ViewBag.Category = categoryLabel;
                 ViewBag.CategoryID = id;
+                ViewBag.CategoryNames = categoryNames.ToList();
             }
 
-            // Last check to make sure that they're not null.
-            ViewBag.Category = ViewBag.Category ?? "All";
-            ViewBag.CategoryID = ViewBag.CategoryID ?? 0;
-
+            // Format strings in subcategories
+            for(int i = 0; i < categoryNames.Count(); i++)
+            {
+                string substring = "";
+                string replacement = "";
+                switch (ViewBag.CategoryNames[i][0])
+                {
+                    case 'W':
+                        substring = "W";
+                        replacement = "Women's ";
+                        break;
+                    case 'M':
+                        substring = "M";
+                        replacement = "Men's ";
+                        break;
+                    case 'K':
+                        substring = "K";
+                        replacement = "Kids '";
+                        break;
+                }
+                ViewBag.CategoryNames[i] = ViewBag.CategoryNames[i].Replace(substring, replacement);
+            }
 
             return View(categoryProducts);
 

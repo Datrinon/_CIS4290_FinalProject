@@ -20,6 +20,7 @@ namespace QwiloMVCStore.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        // TODO: Hardcoded "DefaultConnection" may be affected by name change to QwiloStore.
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
