@@ -1,0 +1,176 @@
+﻿@model IEnumerable<QwiloMVCStore.Models.Cart>
+
+@{
+    ViewBag.Title = "View Shopping Cart";
+}
+
+@*{ //TODO: FORCE USER TO LOG IN.}*@
+
+
+    <!--=================================
+      Main Content -->
+    <section class="iq-cartbox particles position-relative">
+        <div class="circle"></div>
+        <div class="circle two"></div>
+        <div class="plus">+</div>
+        <div class="triangle"></div>
+        <div class="triangle two"></div>
+        <div class="square"></div>
+        <div class="shape-1"><img src="@Url.Content("~/images/shape/01.png")" alt=""></div>
+        <div class="shape-1 two"><img src="@Url.Content("~/images/shape/01.png")" alt=""></div>
+        <div class="shape-2"><img src="@Url.Content("~/images/shape/02.png")" alt=""></div>
+        <div class="shape-2 two"><img src="@Url.Content("~/images/shape/02.png")" alt=""></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered iq-shopping-cart-table text-center">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th><span>PHOTO</span></th>
+                                    <th><span>PRODUCT</span></th>
+                                    <th><span>UNIT PRICE</span></th>
+                                    <th><span>QUANTITY</span></th>
+                                    <th><span>SUBTOTAL</span></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody> @*{ // TODO: REPLACE WITH FOR LOOP LATER}*@
+                                <tr>
+                                    <td class="text-center align-middle">1</td>
+                                    <td class="align-middle"><a href="#"><img src="images/gallery/01.jpg" alt="img"></a></td>
+                                    <td class="align-middle"><a href="#">Men</a></td>
+                                    <td class="align-middle">
+                                        <div class="iq-price">$98.55</div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-left-minus btn btn-number" data-type="minus" data-field="">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                            </span>
+                                            <input type="text" name="quantity" class="form-control input-number quantity" value="0">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <div class="final-price">$98.55</div>
+                                    </td>
+                                    <td class="align-middle"><a href="#" class="icon-close align-middle"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center align-middle">2</td>
+                                    <td class="align-middle"><a href="#"><img src="images/gallery/02.jpg" alt="img"></a></td>
+                                    <td class="align-middle"><a href="#" class="align-middle">Women</a></td>
+                                    <td class="align-middle">
+                                        <div class="iq-price">$98.55</div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <div class="input-group">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-left-minus btn btn-number" data-type="minus" data-field="">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                            </span>
+                                            <input type="text" name="quantity" class="form-control input-number quantity" value="0">
+                                            <span class="input-group-btn">
+                                                <button type="button" class="quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle">
+                                        <div class="final-price">$98.55</div>
+                                    </td>
+                                    <td class="align-middle"><a href="#" class="icon-close align-middle"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="iq-update_cart">
+                        <a class="button float-right" href="#">Update Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            @*<--Product Detail Display-->*@
+            <div class="row justify-content-end">
+                <div class="col-lg-6 col-md-12">
+                    <div class="iq-totale">
+                        <h6>Cart Totals</h6>
+                        <div class="iq-carttotal">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">PRICE DETAILS</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Shipping</td>
+                                        <td class="highlight text-right iq-font-green">FREE</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tax</td>
+                                        <td class="highlight text-right iq-font-green">FREE</td>
+                                    </tr>
+                                    <tr class="tbl-footer">
+                                        <td><b>Total Cost</b></td>
+                                        <td class="text-right iq-font-black"><b> $1950</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a class="btn-black" href="#">PLACE ORDER</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=================================
+    Main Content -->
+
+@*
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+    </table>
+*@
+

@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <!-- Favicon -->
     <link rel="shortcut icon" href="@Url.Content("~/Content/QwiloStore/images/favicon.ico")" />
-    <!-- Default CSS bundle.-->
-    @Styles.Render("~/Content/css")
+    <!-- Default CSS bundle (Disabled since it interferes with some functionalities on the product page.-->
+    @*@Styles.Render("~/Content/css")*@ 
     <!-- QWILO bundle -- includes bootstrap, Revolution CSS, Main Style, RWD, and Custom CSS file.-->
     @Styles.Render("~/bundles/qwilo/css")
     @*
@@ -55,11 +55,11 @@
                             <ul class="menu-logo">
                                 <li>
                                     @*
-                                            <a>
-                                                <!-- Keep this empty block here so the mobile button will load.
-
-        <a href="~/Views/Shared/_Layout.cshtml">~/Views/Shared/_Layout.cshtml</a>                     <img id="logo_img" src="@Url.Content("~/images/logo.png")" alt="logo">
-                                            </a>
+                                        <a>
+                                            <!-- Keep this empty block here so the mobile button will load.
+                                            <a href="~/Views/Shared/_Layout.cshtml">~/Views/Shared/_Layout.cshtml</a>
+                                            <img id="logo_img" src="@Url.Content("~/images/logo.png")" alt="logo">
+                                        </a>
                                     *@
                                 </li>
                             </ul>
@@ -86,7 +86,7 @@
                                 <li class="shop-cart">
                                     <div class="iq-pos-r">
                                         @* TODO: ADD SHOPPING CART LINK HERE *@
-                                        <a href="" class="iq-cart iq-pos-r" id="cart">
+                                        <a href="@Url.Action("Index", "Cart")" class="iq-cart iq-pos-r" id="cart">
                                             <i class="fas fa-shopping-cart" aria-hidden="true" style="color: black; outline-color: black; font-family:'Font Awesome 5 Free'; font-weight: 900;"></i><span class="cart-count">0</span>
                                         </a>
                                         <!-- / Shopping Cart END -->

@@ -26,6 +26,7 @@ namespace QwiloMVCStore.Controllers
                                     select entries.MainCategoryID;
 
             // After getting all parent IDs, add all *distinct* values to the list.
+            // AddRange method on List appends the query results to end of list.
             PossibleMainCategoryIDs.AddRange(getMainCategoryIDs.Distinct());
             
 
@@ -34,45 +35,44 @@ namespace QwiloMVCStore.Controllers
                                    select entries;
 
             // And get all the subcategories associated with that range of products
-            var categoryNames = (from product in db.Products
+            var subCategories = from product in db.Products
                                 join category in db.MasterCategories
                                 on product.SubCategoryID equals category.Id
-                                select category.CategoryID).Distinct();
+                                select new { MainCategoryID = product.MainCategoryID,
+                                             SubCategoryID = product.SubCategoryID, 
+                                             SubcategoryName = category.CategoryID};
 
 
             ViewBag.Category = "All";
             ViewBag.CategoryID = 0;
-            ViewBag.CategoryNames = categoryNames.ToList();
+            ViewBag.SubcategoryNames = subCategories.Select(col => col.SubcategoryName).Distinct().ToList();
 
             // Filter categories if user specified a valid category.
             if (id != null && PossibleMainCategoryIDs.Contains((int)id)) {
                 categoryProducts = categoryProducts.Where(entry => entry.MainCategoryID == id);
 
                 // Get category and categoryIDs into ViewBag for use in the View.
-                string categoryLabel = db.MasterCategories.Where(col => col.Id == id)
-                                                          .Select(e => e.CategoryName)
+                string categoryLabel = db.MasterCategories.Where(row => row.Id == id)
+                                                          .Select(row => row.CategoryName)
                                                           .Single()
                                                           .Trim();
 
                 // TODO: More efficient way to refactor this?
-                categoryNames = (from product in db.Products
-                                where product.MainCategoryID == id
-                                     join category in db.MasterCategories
-                                     on product.SubCategoryID equals category.Id
-                                     select category.CategoryID).Distinct();
+                var mainCategorySubcategories = subCategories.Where(row => row.MainCategoryID == id)
+                                                             .Select(row => row.SubcategoryName);
 
                 // Filter down subcategories
                 ViewBag.Category = categoryLabel;
                 ViewBag.CategoryID = id;
-                ViewBag.CategoryNames = categoryNames.ToList();
+                ViewBag.SubcategoryNames = mainCategorySubcategories.Distinct().ToList();
             }
 
             // Format strings in subcategories
-            for(int i = 0; i < categoryNames.Count(); i++)
+            for(int i = 0; i < ViewBag.SubcategoryNames.Count; i++)
             {
                 string substring = "";
                 string replacement = "";
-                switch (ViewBag.CategoryNames[i][0])
+                switch (ViewBag.SubcategoryNames[i][0]) // Inspect first letter of the subcategory.
                 {
                     case 'W':
                         substring = "W";
@@ -87,14 +87,14 @@ namespace QwiloMVCStore.Controllers
                         replacement = "Kids '";
                         break;
                 }
-                ViewBag.CategoryNames[i] = ViewBag.CategoryNames[i].Replace(substring, replacement);
+                ViewBag.SubcategoryNames[i] = ViewBag.SubcategoryNames[i].Replace(substring, replacement);
             }
 
             return View(categoryProducts);
 
             // Extra note:
             // The default parameter for assigned to the return statement View() (seen below) gets all entries.
-            // db.MasterCategories.ToList()
+            // db.MasterCategories.ToList() : IEnumerable
 
         }
 

@@ -1,75 +1,335 @@
-﻿@model IEnumerable<QwiloMVCStore.Models.Product>
+﻿@model QwiloMVCStore.Models.Product
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "View Product";
 }
 
-<h2>Index</h2>
+    <!--=================================
+       header -->
+    <!--======= Breadcrumb Left With BG Image =======-->
+    <div class="iq-breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box-space">
+                        <div class="iq-breadcrumb-box">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="breadcrumb-title">
+                                        <h2>View Product</h2>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <nav aria-label="breadcrumb" class="text-right">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i>Home</a></li>
+                                            <li class="breadcrumb-item"><a href="#">Category </a></li>
+                                            <li class="breadcrumb-item"><a href="#">Sub-category </a></li>
+                                            <li class="breadcrumb-item"><a href="#">Product </a></li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--======= Breadcrumb Left With BG Image =======-->
+    <!--=================================
+       Main Content -->
+    <div class="main-content particles position-relative">
+        <div class="circle"></div>
+        <div class="circle two"></div>
+        <div class="plus">+</div>
+        <div class="triangle"></div>
+        <div class="triangle two"></div>
+        <div class="square"></div>
+        <div class="shape-1"><img src="@Url.Content("~/images/shape/01.png")" alt=""></div>
+        <div class="shape-1 two"><img src="@Url.Content("~/images/shape/01.png")" alt=""></div>
+        <div class="shape-2"><img src="@Url.Content("~/images/shape/02.png")" alt=""></div>
+        <div class="shape-2 two"><img src="@Url.Content("~/images/shape/02.png")" alt=""></div>
+        <section class="iq-shopdetail-box" data-twttr-rendered="true" data-spy="scroll" data-target=".bs-docs-sidebar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <div class="iq-slick">
+                            <div class="slider slider-for">
+                                <!--Product Image-->
+                                <div>
+                                    @{
+                                        string filePath = "~/productImages/" + Model.ProductNumber.Trim() + ".jpg";
+                                    }
+                                    <img id="ContentPlaceHolder1_imgProduct" class="img-fluid" src="@Url.Content(filePath)" alt="@Model.ProductName" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12 position-relative">
+                        <div class="iq-shopdetail">
+                            <div class="detail-top">
+                                <span class="top-lable">Fashion</span>
+                                <!--Product Name-->
+                                <h3>
+                                    @Model.ProductName
+                                    @*<asp:Label ID="lblProductName" runat="server" Text=""></asp:Label>*@
+                                </h3>
+                                <div class="shop-price w-100 d-inline-block">
+                                    <!--Product Price-->
+                                    <h4>
+                                        $@Model.UnitPrice
+                                        @*<asp:Label ID="lblPrice" runat="server" Text=""></asp:Label>*@
+                                    </h4><br />
+                                    @{          /* TODO: Add discounts for product. */
+                                    }
+                                    @*<h5 style="color:red"><asp:Label ID="lblDiscount" runat="server" Text=""></asp:Label></h5><br />*@
+                                </div>
+                                <div class="rate-box">
+                                    <div class="iq-rating">
+                                        <ul class="list-inline float-left">
+                                            @{
+                                                for (int i = 0; i < 5; i++)
+                                                {
+                                                    if (i < Model.Rating)
+                                                    {
+                                                        <li class="list-inline-item"><a href="#"><i class="fas fa-star" aria-hidden="true"></i></a></li>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UnitPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MainCategoryID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SubCategoryID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Featured)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating)
-        </th>
-        <th></th>
-    </tr>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li class="list-inline-item">
+                                                            <a href="#">
+                                                            <i class="fas fa-star" aria-hidden="true" style="color: black"></i>
+                                                             </a>
+                                                        </li>
+                                                    }
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="detail-bottom" style="left: 0px;">
+                                <div class="product_meta">
+                                    <ul>
+                                        <li> <span>PRODUCT #@Html.DisplayFor(model => model.ProductNumber)</span></li>
+                                        @*<li><span>Product #</span><asp:Label ID="lblProductNumber" runat="server" Text="Label"></asp:Label></li>*@
+                                    </ul>
+                                </div>
+                                <!--Quantity -->
+                                <!--Product Quantity-->
+                                <p>
+                                    Quantity:
+                                    @using (Html.BeginForm("Index", "Products", FormMethod.Post))
+                                    {
+                                        @Html.TextBox("Quantity", 1, new { @class = "form-control input-number quantity" }); <br />
+                                        <div class="all-button">
+                                            <input id="btnAddtoCart" class="button w-100" type="submit" value="Add to Cart">
+                                        </div>
+                                    }
+                                </p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnitPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MainCategoryID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubCategoryID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Featured)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rating)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
-        </td>
-    </tr>
-}
+                                    @*
+            <!-- button -->
+            <div class="all-button">
+                <asp:Button class="button w-100" ID="btnAddtoCart" runat="server" Text="Add To Cart" />
+            </div>
+                                    *@
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row iq-detailleft">
+                    <div class="col-sm-12">
+                        <div class="tab-box">
+                            <ul class="nav nav-tabs text-left" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-expanded="true" aria-selected="true">Description</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact-tab" aria-selected="false">Review</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <p><span>@Model.ProductDescription</span></p>
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Product Code</th>
+                                                <td>US$32</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="review-text">
+                                                <div class="rating-body iq-rating">
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="media  btn-brd">
+                                                    <img class="mr-3" alt="#" src="@Url.Content("~/images/review/color-01.jpg")">
+                                                    <div class="media-body">
+                                                        <h6>Nina Dobrev</h6>
+                                                        <div class="iq-comment-metadata">
+                                                            <a href="#">
+                                                                <i class="fas fa-calendar"></i>
+                                                                <span>May 14, 2017 at 5:00 pm</span>
+                                                            </a>
+                                                        </div>
+                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-text">
+                                                <div class="rating-body iq-rating">
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="media  btn-brd">
+                                                    <img class="mr-3" alt="#" src="@Url.Content("~/images/review/color-01.jpg")">
+                                                    <div class="media-body">
+                                                        <h6>Nick Jonas</h6>
+                                                        <div class="iq-comment-metadata">
+                                                            <a href="#">
+                                                                <i class="fas fa-calendar"></i>
+                                                                <span>May 14, 2017 at 5:00 pm</span>
+                                                            </a>
+                                                        </div>
+                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-text">
+                                                <div class="rating-body iq-rating">
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="media  btn-brd">
+                                                    <img class="mr-3" alt="#" src="@Url.Content("~/images/review/color-01.jpg")">
+                                                    <div class="media-body">
+                                                        <h6>Ria somani</h6>
+                                                        <div class="iq-comment-metadata">
+                                                            <a href="#">
+                                                                <i class="fas fa-calendar"></i>
+                                                                <span>May 14, 2017 at 5:00 pm</span>
+                                                            </a>
+                                                        </div>
+                                                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-</table>
+        </section>
+    </div>
+    <!--=================================
+       Main Content -->
+
+
+
+
+@*<h2>Details</h2>
+
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductDescription)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UnitPrice)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MainCategoryID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MainCategoryID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SubCategoryID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SubCategoryID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Featured)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Featured)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Rating)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Rating)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

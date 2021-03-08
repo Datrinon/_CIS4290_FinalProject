@@ -15,13 +15,7 @@ namespace QwiloMVCStore.Controllers
         private QwiloStoreContext db = new QwiloStoreContext();
 
         // GET: Products
-        public ActionResult Index()
-        {
-            return View(db.Products.ToList());
-        }
-
-        // GET: Products/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Index(int? id)
         {
             if (id == null)
             {
@@ -32,8 +26,10 @@ namespace QwiloMVCStore.Controllers
             {
                 return HttpNotFound();
             }
+
             return View(product);
         }
+
 
         // GET: Products/Create
         public ActionResult Create()
